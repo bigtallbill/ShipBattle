@@ -1,0 +1,11 @@
+{
+    "require": {
+        "marketmesuite/phranken-php": "1.0.24",
+        "psr/log": "1.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*",
+        "satooshi/php-coveralls": "dev-master",
+        "psr/log": "1.0.0"
+    }
+}
