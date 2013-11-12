@@ -57,15 +57,19 @@ class Battle
 
     /**
      * @param CommandPrompt $cmdPrompt
-     * @param SimpleLog $log
-     * @param Player $player
-     * @param Player $opponent
+     * @param SimpleLog     $log
+     * @param Player        $player
+     * @param Player        $opponent
      */
-    public function __construct(CommandPrompt $cmdPrompt, SimpleLog $log, Player $player, Player $opponent)
-    {
-        $this->player   = $player;
-        $this->opponent = $opponent;
-        $this->log = $log;
+    public function __construct(
+        CommandPrompt $cmdPrompt,
+        SimpleLog $log,
+        Player $player,
+        Player $opponent
+    ) {
+        $this->player    = $player;
+        $this->opponent  = $opponent;
+        $this->log       = $log;
         $this->cmdPrompt = $cmdPrompt;
 
         $intro = new CutsceneBattleIntro();
@@ -93,7 +97,7 @@ class Battle
     protected function turnPlayer()
     {
         $player = $this->player;
-        $ship = $this->player->getShip();
+        $ship   = $this->player->getShip();
         $ship->decrementCooldownOfAllWeapons();
 
         $opponent = $this->opponent;
@@ -111,7 +115,7 @@ class Battle
         $battlepageOptionFireLasers = new ConsoleMenuPageOption(
             'FIRE laser cannons (' .
             $ship->countWeaponType(Weapon::TYPE_LASER) .
-            ':total '.
+            ':total ' .
             $ship->countWeaponType(Weapon::TYPE_LASER, true) .
             ':cooling)',
             Weapon::TYPE_LASER,
@@ -214,7 +218,7 @@ class Battle
                 break;
             case 'ship_status':
                 $this->log->log(
-                    $ship->getName() ."'s Status " .
+                    $ship->getName() . "'s Status " .
                     'Hull Points: ' . $ship->getHitPoints() . ' (' . $ship->getHitPointsPercent() . '%)'
                 );
                 $this->turnPlayer();
@@ -229,10 +233,11 @@ class Battle
             $opponent->getShip()->takeDamage($inflictedDamage);
 
             $this->log->log(
-                $opponent->getName() ."'s ship " .
+                $opponent->getName() . "'s ship " .
                 $opponent->getShip()->getName() . ' took ' .
                 $inflictedDamage . ' points of damamge (' .
-                $opponent->getShip()->getHitPoints() . ' remaining) (' . $opponent->getShip()->getHitPointsPercent() . '%)'
+                $opponent->getShip()->getHitPoints() . ' remaining) (' . $opponent->getShip()->getHitPointsPercent(
+                ) . '%)'
             );
 
             // dramatic wait
@@ -249,7 +254,6 @@ class Battle
         }
 
 
-
         sleep(1);
     }
 
@@ -258,7 +262,7 @@ class Battle
         $ship = $this->opponent->getShip();
         $ship->decrementCooldownOfAllWeapons();
 
-        $player = $this->opponent;
+        $player   = $this->opponent;
         $opponent = $this->player;
 
         sleep(rand(2, 5));
@@ -306,10 +310,11 @@ class Battle
             $opponent->getShip()->takeDamage($inflictedDamage);
 
             $this->log->log(
-                $opponent->getName() ."'s ship " .
+                $opponent->getName() . "'s ship " .
                 $opponent->getShip()->getName() . ' took ' .
                 $inflictedDamage . ' points of damamge (' .
-                $opponent->getShip()->getHitPoints() . ' remaining) (' . $opponent->getShip()->getHitPointsPercent() . '%)'
+                $opponent->getShip()->getHitPoints() . ' remaining) (' . $opponent->getShip()->getHitPointsPercent(
+                ) . '%)'
             );
 
             // dramatic wait

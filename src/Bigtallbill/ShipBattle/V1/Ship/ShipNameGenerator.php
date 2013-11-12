@@ -29,7 +29,7 @@ class ShipNameGenerator
      */
     public static function getName()
     {
-        $first = ArrayUtils::betterArrayRand(static::$firstSegment, 1);
+        $first  = ArrayUtils::betterArrayRand(static::$firstSegment, 1);
         $second = ArrayUtils::betterArrayRand(static::$secondSegment, 1);
 
         $name = $first[0] . ' ' . $second[0];

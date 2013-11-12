@@ -9,8 +9,8 @@ class WeaponMissile extends Weapon
     public static function getBaselineStats()
     {
         return array(
-            self::STAT_KEY_MAX_DAMAGE => 125,
-            self::STAT_KEY_MIN_DAMAGE => 50,
+            self::STAT_KEY_MAX_DAMAGE   => 125,
+            self::STAT_KEY_MIN_DAMAGE   => 50,
             self::STAT_KEY_MAX_FIRERATE => 1000,
             self::STAT_KEY_MIN_FIRERATE => 750,
             self::STAT_KEY_MAX_COOLDOWN => 2,

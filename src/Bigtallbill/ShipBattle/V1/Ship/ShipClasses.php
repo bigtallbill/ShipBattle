@@ -34,7 +34,7 @@ class ShipClasses
 
     public static function resolveNumericToHuman($index)
     {
-        $shipClass = static::resolveNumericToClass($index);
+        $shipClass  = static::resolveNumericToClass($index);
         $humanNames = static::getHumanNames();
         return $humanNames[$shipClass];
     }

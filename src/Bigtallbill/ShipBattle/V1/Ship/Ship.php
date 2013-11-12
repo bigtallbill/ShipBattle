@@ -4,7 +4,6 @@ namespace Bigtallbill\ShipBattle\V1\Ship;
 
 use MarketMeSuite\Phranken\Database\Interfaces\IDbObject;
 use MarketMeSuite\Phranken\Database\Object\DbObject;
-use Bigtallbill\ShipBattle\V1\Ship\ShipClass;
 use Bigtallbill\ShipBattle\V1\Weapon\Weapon;
 
 class Ship extends DbObject implements IDbObject
@@ -72,7 +71,8 @@ class Ship extends DbObject implements IDbObject
     /**
      * Fires all the weapons of the given type and returns
      * all of the combined damage
-     * @param $type
+     *
+     * @param      $type
      * @param Ship $target
      *
      * @return int
@@ -168,7 +168,7 @@ class Ship extends DbObject implements IDbObject
         // copy some class statistics that will change
         // over the battle
         $this->hitPoints = $class->getHitpoints();
-        $this->speed = $class->getSpeed();
+        $this->speed     = $class->getSpeed();
         $this->turnSpeed = $class->getTurnSpeed();
 
         $this->class = $class;
@@ -228,7 +228,7 @@ class Ship extends DbObject implements IDbObject
      */
     public function getHitPointsPercent()
     {
-        $hp = $this->getHitPoints();
+        $hp      = $this->getHitPoints();
         $hpTotal = $this->getClass()->getHitpoints();
 
         $percentage = ($hp / $hpTotal) * 100;

@@ -17,7 +17,7 @@ class ConsoleMenuPageOptionValue
     {
         $this->valueRaw    = $valueRaw;
         $this->valueString = $valueString;
-        $this->callback = $callback;
+        $this->callback    = $callback;
     }
 
 

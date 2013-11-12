@@ -16,7 +16,7 @@ abstract class Cutscene
 
     public function play()
     {
-        foreach ($this->keyframes as $index => $keyframe) {
+        foreach ($this->keyframes as $keyframe) {
             self::clearView();
 
             $out = $keyframe->getText();

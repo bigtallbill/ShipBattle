@@ -2,7 +2,6 @@
 namespace Bigtallbill\ShipBattle\V1;
 
 
-use MarketMeSuite\Phranken\Database\Exception\DbObjectException;
 use MarketMeSuite\Phranken\Database\Interfaces\IDbObject;
 use MarketMeSuite\Phranken\Database\Object\DbObject;
 use Bigtallbill\ShipBattle\V1\Ship\Ship;
@@ -20,7 +19,7 @@ class Player extends DbObject implements IDbObject
     public function getMap()
     {
         return array(
-            '_id' => 'id',
+            '_id'  => 'id',
             'name' => 'name',
         );
     }

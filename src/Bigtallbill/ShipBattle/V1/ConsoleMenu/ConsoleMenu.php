@@ -13,8 +13,8 @@ use MarketMeSuite\Phranken\Commandline\ConsoleTable;
 class ConsoleMenu
 {
     const CMD_TURN_TO_PAGE_INDEX = 'turn_to_page_index';
-    const CMD_TURN_TO_PAGE = 'turn_to_page';
-    const CMD_QUIT = 'cmd_quit';
+    const CMD_TURN_TO_PAGE       = 'turn_to_page';
+    const CMD_QUIT               = 'cmd_quit';
 
     const GO_BACK_KEY = '~';
 
@@ -55,6 +55,7 @@ class ConsoleMenu
 
     /**
      * Adds a page to the menu
+     *
      * @param ConsoleMenuPage $page
      */
     public function addPage(ConsoleMenuPage $page)
@@ -64,6 +65,7 @@ class ConsoleMenu
 
     /**
      * Turns the view to the specified page
+     *
      * @param ConsoleMenuPage $page
      */
     public function turnToPage(ConsoleMenuPage $page)
@@ -77,6 +79,7 @@ class ConsoleMenu
     /**
      * Turns the view to the given page at $index
      * provided that index exists in self::$pages
+     *
      * @param int $index
      */
     public function turnToIndex($index = 0)
@@ -173,6 +176,7 @@ class ConsoleMenu
 
     /**
      * Draws a page to the standard output in a table view
+     *
      * @param ConsoleMenuPage $page
      */
     public function drawPage(ConsoleMenuPage $page)

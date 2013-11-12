@@ -18,8 +18,6 @@ use Bigtallbill\ShipBattle\V1\Ship\ShipNameGenerator;
 use MarketMeSuite\Phranken\Commandline\CommandPrompt;
 use MarketMeSuite\Phranken\Commandline\SimpleLog;
 
-use Bigtallbill\ShipBattle\V1\Player;
-
 class Main
 {
 
@@ -54,7 +52,7 @@ class Main
 
     /**
      * @param $cmdPrompt CommandPrompt
-     * @param $log SimpleLog
+     * @param $log       SimpleLog
      */
     public function __construct(CommandPrompt $cmdPrompt, SimpleLog $log)
     {
@@ -135,7 +133,9 @@ class Main
             }
 
             $this->log->log('');
-            $this->log->log("-- Turn $this->currentTurn (" . $this->currentBattle->getCurrentTurnPlayer()->getName() . ") --");
+            $this->log->log(
+                "-- Turn $this->currentTurn (" . $this->currentBattle->getCurrentTurnPlayer()->getName() . ") --"
+            );
             $this->log->log('');
 
             $this->currentTurn++;
@@ -226,9 +226,9 @@ class Main
             $this->log->log('choose your ship class');
             $shipClass = $this->cmdPrompt->read('', ShipClasses::getNumericHumanOptions());
         } while ($this->cmdPrompt->isEnumerable(
-            ShipClasses::resolveNumericToClass($shipClass),
-            ShipClasses::getNumericOptions()
-        ) !== true);
+                ShipClasses::resolveNumericToClass($shipClass),
+                ShipClasses::getNumericOptions()
+            ) !== true);
 
         $this->log->log(
             'your chosen ship class is: ',

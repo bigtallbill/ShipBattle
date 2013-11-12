@@ -8,16 +8,16 @@ use MarketMeSuite\Phranken\Util\ArrayUtils;
 
 abstract class Weapon
 {
-    const TYPE_LASER = 'type_laser';
-    const TYPE_GAUSS = 'type_gauss';
+    const TYPE_LASER   = 'type_laser';
+    const TYPE_GAUSS   = 'type_gauss';
     const TYPE_MISSILE = 'type_missile';
 
-    const TYPE_HUMAN_LASER = 'laser';
-    const TYPE_HUMAN_GAUSS = 'gauss';
+    const TYPE_HUMAN_LASER   = 'laser';
+    const TYPE_HUMAN_GAUSS   = 'gauss';
     const TYPE_HUMAN_MISSILE = 'missile';
 
-    const STAT_KEY_MAX_DAMAGE = 'max_dmg';
-    const STAT_KEY_MIN_DAMAGE = 'min_dmg';
+    const STAT_KEY_MAX_DAMAGE   = 'max_dmg';
+    const STAT_KEY_MIN_DAMAGE   = 'min_dmg';
     const STAT_KEY_MAX_FIRERATE = 'max_fr';
     const STAT_KEY_MIN_FIRERATE = 'min_fr';
     const STAT_KEY_MAX_COOLDOWN = 'max_cd';
@@ -40,7 +40,9 @@ abstract class Weapon
 
     /**
      * Fires the weapon and returns its damage
+     *
      * @param Ship $target
+     *
      * @return int
      */
     public function fire(Ship $target)
@@ -69,7 +71,7 @@ abstract class Weapon
 
         $damage = rand($this->minDamage, $this->maxDamage);
 
-        $fireRateMod = (int) (Main::TURN_LENGTH_IN_GAME_TIME / $this->fireRate);
+        $fireRateMod = (int)(Main::TURN_LENGTH_IN_GAME_TIME / $this->fireRate);
 
         $totalDamage = $damage * $fireRateMod;
 
@@ -90,8 +92,8 @@ abstract class Weapon
         // work out the middle of min and max damage values
         // this is so we dont have the min damage higher than
         // the max damage
-        $diff = $baseLine[self::STAT_KEY_MAX_DAMAGE] - $baseLine[self::STAT_KEY_MIN_DAMAGE];
-        $diff = (int) $diff / 2;
+        $diff   = $baseLine[self::STAT_KEY_MAX_DAMAGE] - $baseLine[self::STAT_KEY_MIN_DAMAGE];
+        $diff   = (int)$diff / 2;
         $middle = $diff + $baseLine[self::STAT_KEY_MIN_DAMAGE];
 
         $this->maxDamage = rand(
@@ -123,8 +125,8 @@ abstract class Weapon
     public static function getBaselineStats()
     {
         return array(
-            self::STAT_KEY_MAX_DAMAGE => 0,
-            self::STAT_KEY_MIN_DAMAGE => 0,
+            self::STAT_KEY_MAX_DAMAGE   => 0,
+            self::STAT_KEY_MIN_DAMAGE   => 0,
             self::STAT_KEY_MAX_FIRERATE => 0,
             self::STAT_KEY_MIN_FIRERATE => 0,
             self::STAT_KEY_MAX_COOLDOWN => 0,
@@ -164,13 +166,13 @@ abstract class Weapon
     {
 
         $map = array(
-            self::TYPE_LASER => self::TYPE_HUMAN_LASER,
-            self::TYPE_GAUSS => self::TYPE_HUMAN_GAUSS,
+            self::TYPE_LASER   => self::TYPE_HUMAN_LASER,
+            self::TYPE_GAUSS   => self::TYPE_HUMAN_GAUSS,
             self::TYPE_MISSILE => self::TYPE_HUMAN_MISSILE
         );
 
         $types = static::getTypes();
-        $type = $types[$index];
+        $type  = $types[$index];
 
         return $map[$type];
     }
@@ -179,8 +181,8 @@ abstract class Weapon
     {
 
         $map = array(
-            self::TYPE_LASER => self::TYPE_HUMAN_LASER,
-            self::TYPE_GAUSS => self::TYPE_HUMAN_GAUSS,
+            self::TYPE_LASER   => self::TYPE_HUMAN_LASER,
+            self::TYPE_GAUSS   => self::TYPE_HUMAN_GAUSS,
             self::TYPE_MISSILE => self::TYPE_HUMAN_MISSILE
         );
 
@@ -208,7 +210,7 @@ abstract class Weapon
 
     public function decrementCooldown()
     {
-        $this->setCooldown($this->getCooldown()-1);
+        $this->setCooldown($this->getCooldown() - 1);
     }
 
     /**
