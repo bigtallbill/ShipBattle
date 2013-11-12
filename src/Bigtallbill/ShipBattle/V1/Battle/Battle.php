@@ -68,8 +68,8 @@ class Battle
         $this->log = $log;
         $this->cmdPrompt = $cmdPrompt;
 
-        //$intro = new CutsceneBattleIntro();
-        //$intro->play();
+        $intro = new CutsceneBattleIntro();
+        $intro->play();
     }
 
     public function nextTurn()

@@ -5,7 +5,7 @@ namespace Bigtallbill\ShipBattle\V1\Battle;
 use Bigtallbill\ShipBattle\V1\Cutscene\Cutscene;
 use Bigtallbill\ShipBattle\V1\Cutscene\KeyFrame;
 
-class CutsceneBattleIntro extends Cutscene
+class CutsceneBattleOutro extends Cutscene
 {
 
     public function __construct()
